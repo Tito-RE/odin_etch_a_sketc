@@ -5,13 +5,21 @@ function changeDivColor(e) {
 
 //Create a grid of div's given quantity per side 
 function createGrid(quantity) {
-  for (let i = 0; i < quantity*4; i++) {
+  for (let i = 0; i < quantity; i++) {
     let div = document.createElement('div');
-    div.classList.add("item");
-    div.addEventListener('mouseover', (event) => {
-      changeDivColor(event);
-    });
+    div.classList.add("row");
+
+    for (let j = 0; j < quantity; j++) {
+      let item = document.createElement('div');
+      item.classList.add("item");
+      item.addEventListener('mouseover', (event) => {
+        changeDivColor(event);
+      });
+      div.appendChild(item);
+    }
     container.appendChild(div);
+
+    
   }
 }
 
@@ -23,7 +31,6 @@ function deleteGrid() {
 }
 
 const container = document.querySelector('.container');
-createGrid(4);
 const gridSize = prompt("What's quantity of squares per side you want");
-deleteGrid();
 createGrid(gridSize);
+//deleteGrid();
