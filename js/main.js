@@ -31,7 +31,7 @@ function deleteGrid() {
 function generateGrid() {
   let gridSize;
   do {
-    gridSize = prompt("What's quantity of squares per side you want");
+    gridSize = prompt("What's quantity of squares per side you want?");
   } while (gridSize >= 100 || gridSize <= 0);
   deleteGrid();
   drawGrid(gridSize);
